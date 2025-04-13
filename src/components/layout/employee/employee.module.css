@@ -1,0 +1,106 @@
+.container {
+ display: flex;
+ flex-direction: column;
+ height: 90vh;
+ padding: 5rem;
+ background-color: #000000;
+ color: #e5e5e5;
+ font-family: sans-serif;
+}
+
+.notification {
+ margin-bottom: 1rem;
+ padding: 0.75rem;
+ border-radius: 8px;
+ font-weight: 500;
+ width: 100%;
+ text-align: center;
+}
+.success {
+ background-color: #2e7d32;
+ color: white;
+}
+.error {
+ background-color: #c62828;
+ color: white;
+}
+
+.form {
+ flex: 1;
+ display: grid;
+ gap: 1rem;
+ margin-bottom: 1rem;
+}
+
+.formGroup {
+ display: flex;
+ flex-direction: column;
+}
+
+.label {
+ margin-bottom: 0.25rem;
+ font-weight: 500;
+}
+
+.input,
+.select {
+ padding: 0.5rem;
+ border: none;
+ border-radius: 6px;
+ background-color: #2e2e2e;
+ color: white;
+}
+
+.input::placeholder {
+ color: #999;
+}
+
+.button {
+ padding: 0px;
+ background-color: #424242;
+ color: white;
+ border: none;
+ border-radius: 6px;
+ cursor: pointer;
+ grid-column: span 2;
+ margin-bottom: 20px;
+ font-weight: bold;
+ transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.button:hover {
+ background-color: #2e7d32;
+}
+
+.button:disabled {
+ background-color: #4f3527;
+ cursor: not-allowed;
+}
+
+.tableWrapper {
+ flex: 1;
+ overflow-y: auto;
+}
+
+.table {
+ width: 100%;
+ border-collapse: collapse;
+ background-color: #2a2a2a;
+ color: white;
+}
+
+.table th,
+.table td {
+ padding: 0.75rem;
+ border: 1px solid #444;
+ text-align: left;
+}
+
+.deleteButton {
+ background-color: #c62828;
+ color: white;
+ border: none;
+ padding: 0.5rem;
+ border-radius: 4px;
+ cursor: pointer;
+}

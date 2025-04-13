@@ -1,0 +1,31 @@
+.page {
+ width: 100%;
+ height: calc(100vh - 10vh);
+ background-color: black;
+ padding: 40px;
+}
+
+.headerContainer {
+ height: 100%;
+ display: flex;
+ align-items: center;
+ padding: 20px;
+ justify-content: flex-start;
+ background-color: rgb(76, 76, 76);
+}
+
+.headerContainer h1 {
+ padding: 60px;
+ width: 50%;
+ color: white;
+ font-size: 60px;
+ font-family:  "Space Grotesk", sans-serif;
+}
+
+.images {
+padding: 40px;
+ width: 700px;
+ height: auto;
+ justify-content: flex-end;
+ align-items: center;
+}

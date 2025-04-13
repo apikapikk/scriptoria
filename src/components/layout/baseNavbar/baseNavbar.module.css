@@ -1,0 +1,38 @@
+.header {
+    background-color: #202121;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.logoContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.textLogo {
+    width: 100px;
+    height: auto;
+}
+
+.logout {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.logoutLogo {
+    width: 30px;
+    height: auto;
+}
+

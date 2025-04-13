@@ -1,0 +1,72 @@
+.servicesContainer {
+    max-width: 100%;
+    height: 100vh;
+    background-color: #CCCCCC;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardsIcons {
+    width: 100px;
+    height: auto;
+    margin: 30px;
+}
+
+.childCards {
+    font-family: "Space Grotesk", sans-serif;
+    max-width: 400px;
+    height: 400px;
+    margin: 50px;
+    background-color: rgb(33, 33, 33);
+    display: flex; 
+    border-radius: 5px;
+    flex-direction: column; 
+    justify-content: start;
+    align-items: center; 
+    text-align: center; 
+}
+
+.childCards span {
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 24px;
+    background-color: rgb(119, 119, 119);
+    width: 100%;
+}
+
+.childCards h3 {
+    margin-top: 30px;
+    color:white;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.aboutMe {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: inline-block;
+    background-color: rgb(37, 37, 37);
+    width: 100%;
+    height: auto;
+    color: white;
+    justify-items: center;
+    padding: 20px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+}
+
+.aboutMe h1 {
+    margin-bottom: 10px; 
+}
+
+.aboutMe h3 {
+    margin-top: 10px; 
+    font-weight: 400;
+}
+

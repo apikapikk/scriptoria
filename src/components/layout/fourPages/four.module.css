@@ -1,0 +1,116 @@
+.container {
+ width: 90%;
+ margin: auto;
+ text-align: center;
+ font-family: Arial, sans-serif;
+ background: black;
+ color: white;
+ padding: 20px;
+}
+
+.header {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background: #222;
+ padding: 15px;
+}
+
+.logo {
+ font-size: 24px;
+ font-weight: bold;
+ color: #fff;
+}
+
+.formContainer {
+ margin: 20px 0;
+ text-align: left;
+}
+
+.input {
+ display: block;
+ width: 50%;
+ margin: 10px auto;
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ background: white;
+ color: black;
+}
+
+.totalPayment {
+ background: white;
+ color: black;
+ padding: 20px;
+ width: 30%;
+ margin: auto;
+ border-radius: 5px;
+}
+
+.totalPayment h3 {
+ margin: 0;
+ font-size: 16px;
+}
+
+.totalPayment p {
+ font-size: 24px;
+ font-weight: bold;
+}
+
+.buttonContainer {
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+ margin: 20px 0;
+}
+
+.actionButton {
+ padding: 10px;
+ background: white;
+ color: black;
+ border: none;
+ cursor: pointer;
+ border-radius: 5px;
+}
+
+.actionButton:hover {
+ background: #ccc;
+}
+
+.table {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 20px;
+ background: white;
+ color: black;
+}
+
+.table th, .table td {
+ border: 1px solid #ddd;
+ padding: 10px;
+}
+
+.table th {
+ background: #f4f4f4;
+ font-weight: bold;
+}
+
+.emptyRow {
+ text-align: center;
+ font-style: italic;
+ color: gray;
+}
+
+.paymentContainer {
+ margin-top: 20px;
+}
+
+.paymentContainer label {
+ display: block;
+ margin-top: 10px;
+ font-size: 16px;
+}
+
+.paymentContainer .input {
+ width: 30%;
+}

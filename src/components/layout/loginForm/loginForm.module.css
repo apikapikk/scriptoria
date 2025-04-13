@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+
+.header {
+    background-color: #202121;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.textLogo {
+    width: 100px;
+    height: auto;
+}
+
+
+.mainPage {
+    display: flex;
+}
+
+/* Bagian Kiri */
+.leftPage {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 10vh);
+    background-color: #000000;
+}
+
+.leftPage h1 {
+    width: 800px;
+    font-size: 60px;
+    font-weight: 700;
+    color: white;
+    font-family: "Space Grotesk", sans-serif;;
+    margin-bottom: 10px;
+}
+
+.leftPage h3 {
+    width: 800px;
+    font-size: 30px;
+    color: white;
+    font-family: "Space Grotesk", sans-serif;;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Bagian Kanan */
+.rightPage {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 10vh);
+}
+
+
+.loginWrapper {
+    background-color: #000000;
+    padding: 60px;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+.loginWrapper h1 {
+    font-family: "Space Grotesk", sans-serif;;
+    font-size: 40px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+
+.loginWrapper form {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginWrapper label {
+    text-align: left;
+    font-size: 16px;
+    font-family: "Space Grotesk", sans-serif;;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.loginWrapper input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-family: "Space Grotesk", sans-serif;;
+    border: 1px solid #444;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.loginWrapper input:focus {
+    border-color: #c0c0c0;
+}
+
+/* Tombol Login */
+.loginButton {
+    margin-top: 40px;
+    padding: 12px;
+    border-radius: 50px;
+    font-family: "Space Grotesk", sans-serif;;
+    border: none;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.loginButton:hover {
+    background: #343434;
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    .mainPage {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .leftPage {
+        max-width: 80%;
+    }
+
+    .rightPage {
+        min-width: 80%;
+    }
+}

@@ -1,0 +1,194 @@
+/* Global Container */
+.container {
+ width: 100%;
+ margin: 0 auto;
+ padding: 20px;
+ background-color: #333; /* Dominan abu-abu gelap */
+ font-family: 'Helvetica', sans-serif;
+ color: #fff; /* Teks putih untuk kontras dengan latar belakang gelap */
+}
+
+/* Title */
+.title {
+ font-size: 2rem;
+ color: #fff; /* Warna teks putih */
+ text-align: center;
+ margin-bottom: 30px;
+}
+
+/* Subtitle for sections */
+.subtitle {
+ font-size: 1.5rem;
+ color: #ccc; /* Abu-abu terang untuk subjudul */
+ margin-bottom: 15px;
+ font-weight: 600;
+}
+
+/* Input for Date Filters */
+.filterContainer {
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+ margin-bottom: 20px;
+}
+
+.inputDate, .searchBar, .marginInput {
+ padding: 8px 12px;
+ border: 1px solid #666; /* Border abu-abu gelap */
+ border-radius: 4px;
+ font-size: 1rem;
+ background-color: #444; /* Latar belakang abu-abu gelap */
+ color: #fff; /* Teks putih */
+}
+
+.marginInputContainer {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-bottom: 20px;
+}
+
+/* Chart Container */
+.chartContainer {
+ margin-top: 30px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.chartContainer h2 {
+ margin-bottom: 20px;
+ color: #fff; /* Teks putih untuk judul grafik */
+}
+
+/* Table Styling */
+.reportTable {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 20px;
+}
+
+.reportTable th,
+.reportTable td {
+ padding: 12px;
+ text-align: center;
+ border: 1px solid #666; /* Border abu-abu gelap */
+}
+
+.reportTable th {
+ background-color: #555; /* Latar belakang abu-abu gelap untuk header */
+ color: white;
+ font-size: 1rem;
+}
+
+.reportTable td {
+ background-color: #444; /* Latar belakang abu-abu gelap untuk baris tabel */
+ font-size: 1rem;
+}
+
+.reportTable tr:nth-child(even) {
+ background-color: #555; /* Ganti warna latar belakang baris genap */
+}
+
+.reportTable tr:hover {
+ background-color: #666; /* Efek hover lebih terang */
+}
+
+/* Total Penjualan and Laba Section */
+.totalContainer {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-top: 30px;
+ padding: 15px;
+ background-color: #444; /* Latar belakang abu-abu gelap */
+ border-radius: 6px;
+ font-size: 1.2rem;
+ font-weight: bold;
+ color: #fff; /* Teks putih */
+}
+
+.totalContainer h3 {
+ margin: 0;
+}
+
+/* Export Button */
+.exportButton {
+ display: block;
+ width: 100%;
+ max-width: 200px;
+ margin: 20px auto;
+ padding: 12px;
+ background-color: #007bff; /* Warna tombol biru terang */
+ color: white;
+ border: none;
+ border-radius: 6px;
+ font-size: 1.1rem;
+ cursor: pointer;
+ text-align: center;
+ transition: background-color 0.3s ease;
+}
+
+.exportButton:hover {
+ background-color: #0056b3; /* Warna tombol saat hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .container {
+   padding: 10px;
+ }
+
+ .filterContainer {
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .inputDate, .searchBar, .marginInput {
+   width: 100%;
+ }
+
+ .chartContainer {
+   margin-top: 20px;
+ }
+
+ .totalContainer {
+   flex-direction: column;
+   align-items: flex-start;
+ }
+
+ .exportButton {
+   width: 100%;
+ }
+}
+
+@media (max-width: 480px) {
+ .title {
+   font-size: 1.8rem;
+ }
+
+ .subtitle {
+   font-size: 1.2rem;
+ }
+
+ .reportTable th,
+ .reportTable td {
+   padding: 8px;
+ }
+
+ .reportTable th {
+   font-size: 0.9rem;
+ }
+
+ .reportTable td {
+   font-size: 0.9rem;
+ }
+
+ .totalContainer {
+   font-size: 1rem;
+ }
+
+ .exportButton {
+   font-size: 1rem;
+ }
+}

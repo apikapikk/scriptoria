@@ -1,0 +1,77 @@
+.page {
+ font-family: "Space Grotesk", sans-serif;
+ width: 100%;
+ max-height: 90vh;
+ padding: 80px;
+ background: #f4f4f4; /* Latar belakang netral */
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+}
+
+.page span {
+ text-align: left;
+ color: #333;
+ font-size: 50px;
+ padding: 20px;
+ margin-left: 60px;
+ font-weight: 700;
+}
+
+.cardContainer {
+ margin: 20px;
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap; /* Membuat kartu membungkus ke baris berikutnya jika diperlukan */
+ justify-content: space-evenly; /* Menyusun kartu secara horizontal dengan jarak antar kartu yang merata */
+ gap: 20px; /* Memberikan jarak antar kartu */
+ padding: 20px;
+}
+
+.cards {
+ background-color: #f4f0f0;
+ height: 300px;
+ width: 100%; /* Default menjadi lebar penuh */
+ max-width: 250px; /* Membatasi lebar maksimum kartu */
+ padding: 20px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ border-radius: 15px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus untuk efek modern */
+ transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus saat hover */
+}
+
+.cards:hover {
+ transform: translateY(-10px); /* Efek angkat saat hover */
+ box-shadow: 0 12px 16px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat saat hover */
+}
+
+.cards h1 {
+ color: #333;
+ font-weight: 500;
+ font-size: 20px;
+ margin-top: 15px;
+}
+
+.images {
+ background-color: #eaeaea;
+ border-radius: 50%;
+ padding: 20px;
+ width: 100px;
+ height: 100px;
+ margin-bottom: 15px;
+ transition: background-color 0.3s ease; /* Efek transisi pada gambar */
+}
+
+.cards:hover .images {
+ background-color: #ff7e5f; /* Efek perubahan warna pada gambar saat hover */
+}
+
+.images img {
+ width: 100%;
+ height: 100%;
+ object-fit: contain; /* Memastikan gambar tetap proporsional */
+}
