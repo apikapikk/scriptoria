@@ -281,6 +281,7 @@ export default function EmployeesPage() {
               <th>Nama</th>
               <th>Gender</th>
               <th>Posisi</th>
+              <th>Password</th>
               <th>No Telepon</th>
               <th>Aksi</th>
             </tr>
@@ -292,6 +293,7 @@ export default function EmployeesPage() {
                 <td>{emp.name_employee}</td>
                 <td>{emp.gender_employee}</td>
                 <td>{emp.position_employee}</td>
+                <td>{emp.password_employee}</td>
                 <td>{emp.phone_number_employee}</td>
                 <td>
                   <button
@@ -322,6 +324,7 @@ export default function EmployeesPage() {
             <div><strong>Nama:</strong> {emp.name_employee}</div>
             <div><strong>Gender:</strong> {emp.gender_employee}</div>
             <div><strong>Posisi:</strong> {emp.position_employee}</div>
+            <div><strong>Password:</strong> {emp.password_employee}</div> {/* Tambahkan ini */}
             <div><strong>No Telp:</strong> {emp.phone_number_employee}</div>
             <div className={styles.actionButtons}>
               <button
