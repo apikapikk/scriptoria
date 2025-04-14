@@ -70,3 +70,70 @@
     font-weight: 400;
 }
 
+@media screen and (max-width: 1024px) {
+    .cards {
+      flex-direction: column;
+      gap: 30px;
+    }
+  
+    .childCards {
+      margin: 20px auto;
+      max-width: 90%;
+      height: auto;
+    }
+  
+    .childCards span {
+      font-size: 20px;
+    }
+  
+    .childCards h3 {
+      font-size: 18px;
+      margin: 20px;
+    }
+  
+    .cardsIcons {
+      width: 80px;
+      margin: 20px;
+    }
+  
+    .aboutMe {
+      font-size: 18px;
+      padding: 16px;
+    }
+  
+    .aboutMe h1 {
+      font-size: 28px;
+    }
+  
+    .aboutMe h3 {
+      font-size: 18px;
+    }
+  
+    .servicesContainer {
+      height: auto;
+      padding-bottom: 60px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .aboutMe h1 {
+      font-size: 24px;
+    }
+  
+    .aboutMe h3 {
+      font-size: 16px;
+    }
+  
+    .childCards span {
+      font-size: 18px;
+    }
+  
+    .childCards h3 {
+      font-size: 16px;
+    }
+  
+    .cardsIcons {
+      width: 60px;
+    }
+  }
+  

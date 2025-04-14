@@ -100,3 +100,97 @@
     border-radius: 20px;
   }
   
+  .hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  color: white;
+  border: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+/* Tambahkan transisi untuk animasi menu */
+.navigation {
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+.showMenu {
+  max-height: 500px; /* cukup besar agar semua menu muat */
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #202121;
+    z-index: 999;
+    padding: 20px 0;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    align-items: center;
+  }
+
+  .navLinks li {
+    padding: 16px 0; /* lebih tebal di mobile */
+    width: 100%;
+    text-align: center;
+  }
+
+  .navLinks li a {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .cla {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    padding: 10px;
+  }
+
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .navigation {
+    display: flex !important;
+    position: static;
+    max-height: none !important;
+    opacity: 1 !important;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navLinks {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .cla {
+    display: block;
+  }
+}
+
+

@@ -135,19 +135,113 @@
     background: #343434;
 }
 
-/* Responsif untuk Mobile */
+@media (max-width: 1024px) {
+    .leftPage h1,
+    .leftPage h3 {
+        width: 90%;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .loginWrapper {
+        padding: 40px;
+        max-width: 90%;
+    }
+}
+
 @media (max-width: 768px) {
     .mainPage {
         flex-direction: column;
         text-align: center;
-        gap: 20px;
+        gap: 50px;
+        padding: 30px;
+    }
+
+    .leftPage, .rightPage {
+        width: 100%;
+        height: auto;
     }
 
     .leftPage {
-        max-width: 80%;
+        color: #000000;
+        margin-top: 60px;
+        background-color: white;
     }
 
-    .rightPage {
-        min-width: 80%;
+    .leftPage h1 {
+        color: #000000;
+        font-size: 32px;
+        width: 90%;
+    }
+
+    .leftPage h3 {
+        color: #000000;
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .loginWrapper {
+        margin: 40px;
+        padding: 30px;
+    }
+
+    .loginWrapper h1 {
+        font-size: 28px;
+    }
+
+    .loginWrapper input {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .loginButton {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    .textLogo {
+        width: 80px;
+    }
+
+    .leftPage h1 {
+        font-size: 24px;
+    }
+
+    .leftPage h3 {
+        font-size: 16px;
+    }
+
+    .loginWrapper {
+        padding: 20px;
+    }
+
+    .loginWrapper h1 {
+        font-size: 24px;
+    }
+
+    .loginWrapper label {
+        font-size: 14px;
+    }
+
+    .loginWrapper input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .loginButton {
+        padding: 10px;
+        font-size: 14px;
     }
 }

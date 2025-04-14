@@ -1,106 +1,164 @@
+/* Global styles */
 .container {
- display: flex;
- flex-direction: column;
- height: 90vh;
- padding: 5rem;
- background-color: #000000;
- color: #e5e5e5;
- font-family: sans-serif;
+  padding: 20px;
+  background-color: #121212; /* Dark background for the main container */
+  color: #e0e0e0; /* Light text color */
 }
 
 .notification {
- margin-bottom: 1rem;
- padding: 0.75rem;
- border-radius: 8px;
- font-weight: 500;
- width: 100%;
- text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-weight: bold;
 }
+
 .success {
- background-color: #2e7d32;
- color: white;
+  background-color: #444;
+  color: #8bc34a; /* Soft green for success */
 }
+
 .error {
- background-color: #c62828;
- color: white;
+  background-color: #444;
+  color: #f44336; /* Soft red for errors */
 }
 
 .form {
- flex: 1;
- display: grid;
- gap: 1rem;
- margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
 }
 
 .formGroup {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
- margin-bottom: 0.25rem;
- font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 5px;
 }
 
 .input,
 .select {
- padding: 0.5rem;
- border: none;
- border-radius: 6px;
- background-color: #2e2e2e;
- color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #222; /* Dark background for input fields */
+  color: #e0e0e0; /* Light text color */
+  font-size: 1rem;
 }
 
-.input::placeholder {
- color: #999;
+.input:focus,
+.select:focus {
+  border-color: #888; /* Lighter border color when focused */
+  outline: none;
 }
 
 .button {
- padding: 0px;
- background-color: #424242;
- color: white;
- border: none;
- border-radius: 6px;
- cursor: pointer;
- grid-column: span 2;
- margin-bottom: 20px;
- font-weight: bold;
- transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  padding: 12px;
+  background-color: #333; /* Dark button background */
+  color: #e0e0e0; /* Light text color */
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .button:hover {
- background-color: #2e7d32;
-}
-
-.button:disabled {
- background-color: #4f3527;
- cursor: not-allowed;
+  background-color: #555; /* Slightly lighter dark color when hovered */
 }
 
 .tableWrapper {
- flex: 1;
- overflow-y: auto;
+  margin-top: 20px;
+  overflow-x: auto;
 }
 
 .table {
- width: 100%;
- border-collapse: collapse;
- background-color: #2a2a2a;
- color: white;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .table th,
 .table td {
- padding: 0.75rem;
- border: 1px solid #444;
- text-align: left;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.table th {
+  background-color: #222; /* Dark background for table headers */
 }
 
 .deleteButton {
- background-color: #c62828;
- color: white;
- border: none;
- padding: 0.5rem;
- border-radius: 4px;
- cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: white;
+  background-color: #e74c3c; /* Red color for delete button */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b; /* Slightly darker red on hover */
+}
+
+/* Mobile Card View */
+.mobileCardList {
+  display: none;
+}
+
+.employeeCard {
+  background-color: #222; /* Dark background for cards */
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.employeeCard > div {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #e0e0e0; /* Light text color inside card */
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+/* For small screens (Mobile devices) */
+@media (max-width: 768px) {
+  .tableWrapper {
+    display: none;
+  }
+
+  .mobileCardList {
+    display: block;
+  }
+
+  .employeeCard {
+    font-size: 0.9rem;
+  }
+
+  .deleteButton {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Additional Styling for Form Field for better UI */
+.input, .select {
+  margin-bottom: 1rem;
+}
+
+/* For better spacing and readable form */
+.formGroup > input, .formGroup > select {
+  width: 100%;
 }

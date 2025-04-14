@@ -272,6 +272,7 @@ export default function EmployeesPage() {
         </button>
       </form>
 
+            {/* Desktop Table */}
       <div className={styles.tableWrapper}>
         <table className={styles.table}>
           <thead>
@@ -311,6 +312,34 @@ export default function EmployeesPage() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className={styles.mobileCardList}>
+        {employees.map((emp) => (
+          <div key={emp.id_employee} className={styles.employeeCard}>
+            <div><strong>Username:</strong> {emp.username_employee}</div>
+            <div><strong>Nama:</strong> {emp.name_employee}</div>
+            <div><strong>Gender:</strong> {emp.gender_employee}</div>
+            <div><strong>Posisi:</strong> {emp.position_employee}</div>
+            <div><strong>No Telp:</strong> {emp.phone_number_employee}</div>
+            <div className={styles.actionButtons}>
+              <button
+                onClick={() => handleEdit(emp)}
+                className={styles.deleteButton}
+                style={{ backgroundColor: "#007acc" }}
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDeleteEmployee(emp.id_employee)}
+                className={styles.deleteButton}
+              >
+                Hapus
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

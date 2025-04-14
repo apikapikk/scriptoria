@@ -3,8 +3,24 @@ import Image from 'next/image';
 import { motion } from "framer-motion";
 import useTypewriter from "@/components/hooks/animations/useTypewritter";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth <= breakpoint);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
 
 const PreviewProduct = () => {
+    const isMobile = useIsMobile();
     const typedText = useTypewriter(
         "Membantu Mengelola Penjualan", 
         ["Produk Pilihan", "Alat Tulis Pilihan"], 
@@ -25,7 +41,7 @@ const PreviewProduct = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }} > {typedText} </motion.h1>
         <p className={styles.paragraphText}>Scriptoria hadir untuk membantu pemilik usaha UMKM Alat Tulis mengelola penjualan produk dengan mekanisme yang tercepat</p>
-        <a className={styles.buttonSet} onClick={handleLogin} style={{ cursor: "pointer" }}><button>Atur Penjualan </button></a>
+        <a className={styles.buttonSet} onClick={handleLogin} style={{ cursor: "pointer" }}><button>{isMobile ? "Login" : "Atur Penjualan"}</button></a>
         </span>
         <motion.div className={styles.imageContainer}
         initial={{ opacity: 0, scale: 0.9 }}

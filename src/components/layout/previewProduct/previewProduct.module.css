@@ -2,92 +2,165 @@
     font-family: "Space Grotesk", sans-serif;
     font-size: 60px;
     margin-left: 80px;
-    align-items: start;
     font-weight: bold;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: white;
     transition: all 0.3s ease 0s;
-}
-
-.buttonSet button {
+  }
+  
+  .headingText::after {
+    content: "|";
+    display: inline-block;
+    animation: blink 0.7s infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .paragraphText {
+    margin-top: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    color: white;
+  }
+  
+  .buttonSet button {
     font-family: "Space Grotesk", sans-serif;
     font-size: 24px;
     padding: 20px 80px;
     margin: 40px;
     margin-left: 80px;
     border-radius: 20px;
-    border-style: solid;
-    border-color: rgb(232, 227, 227);
-    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(232, 227, 227);
+    background-color: white;
     color: rgb(52, 52, 52);
     cursor: pointer;
-    font-weight: 400;
     transition: all 0.5s ease 0s;
   }
-
-  .headingText::after {
-    content: "|"; /* Kursor berkedip */
-    display: inline-block;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
-
+  
   .buttonSet button:hover {
     border-radius: 50px;
-    color: rgb(0, 0, 0);
+    color: black;
     border-color: black;
     background-color: rgb(90, 90, 90);
-    cursor: pointer;
   }
-
-
-.paragraphText {
-    margin-top: 30px;
-    margin-right: 200px;
-    margin-left: 80px;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 24px;
-    text-decoration: none;
-    color: white;
-}
-
-.previewContainer {
+  
+  .previewContainer {
     background-color: black;
     display: flex;
-    align-items: center; 
-    min-height: calc(100vh - 10vh); 
-    width: 100%; 
-}
-
-.textContainer {
-    width: 1000px;
-}
-
-.imageContainer {
-    padding: 50px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    min-height: calc(100vh - 10vh);
+    width: 100%;
+  }
+  
+  .textContainer {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  .imageContainer {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
     display: flex;
     align-items: center;
-}
-
-.productPreview {
-    position: absolute;
-    width: 700px;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .productPreview {
+    width: 100%;
+    max-width: 500px;
     height: auto;
     z-index: 2;
-}
-
-
-.productPreviewBottom {
-    position: relative;
-    bottom: -180px;
-    left: 200px;
-    width: 500px;
-    height: 160px;
+    position: absolute;
+  }
+  
+  .productPreviewBottom {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     z-index: 1;
-}
-
+    position: relative;
+    bottom: -120px;
+    left: 100px;
+  }
+  
+  /* 🌐 RESPONSIVE SETTINGS */
+  @media (max-width: 1024px) {
+    .headingText {
+      font-size: 48px;
+      margin-left: 40px;
+    }
+  
+    .paragraphText,
+    .buttonSet button {
+      margin-left: 40px;
+      font-size: 20px;
+    }
+  
+    .productPreview {
+      max-width: 400px;
+    }
+  
+    .productPreviewBottom {
+      max-width: 300px;
+      left: 80px;
+      bottom: -100px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .previewContainer {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .headingText {
+      font-size: 30px;
+      margin-left: 0;
+    }
+  
+    .paragraphText {
+      font-size: 18px;
+      margin: 20px auto;
+    }
+  
+    .buttonSet button {
+      font-size: 18px;
+      padding: 15px 40px;
+      margin: 20px auto;
+    }
+  
+    .textContainer,
+    .imageContainer {
+      width: 100%;
+      max-width: none;
+      padding: 10px;
+    }
+  
+    .productPreview {
+      position: absolute;
+      max-width: 80%;
+      z-index: 2;
+    }
+  
+    .productPreviewBottom {
+      left: 0;
+      position: relative;
+      z-index: 1;
+      bottom: -50px;
+      max-width: 60%;
+    }
+  }
+  

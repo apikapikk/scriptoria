@@ -19,13 +19,32 @@
  width: 50%;
  color: white;
  font-size: 60px;
- font-family:  "Space Grotesk", sans-serif;
+ font-family: "Space Grotesk", sans-serif;
 }
 
+/* Image container styling */
 .images {
-padding: 40px;
+ padding: 40px;
  width: 700px;
  height: auto;
  justify-content: flex-end;
  align-items: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+ .headerContainer {
+  display: block;
+  max-height: 80%;
+ }
+
+ .headerContainer h1 {
+     width: 100%;
+     font-size: 30px;
+     padding: 20px;
+ }
+ .images {
+     width: 100%;
+     padding: 0px;
+ }
 }

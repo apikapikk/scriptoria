@@ -51,3 +51,19 @@
  font-size: 12px;
  color: #8892b0;
 }
+
+@media screen and (max-width: 1024px) {
+ .container {
+   flex-direction: column;
+   text-align: center;
+   gap: 20px;
+ }
+
+ .logo {
+   align-items: center;
+ }
+
+ .copyright {
+   margin-top: 20px;
+ }
+}

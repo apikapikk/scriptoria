@@ -1,194 +1,251 @@
 /* Global Container */
 .container {
- width: 100%;
- margin: 0 auto;
- padding: 20px;
- background-color: #333; /* Dominan abu-abu gelap */
- font-family: 'Helvetica', sans-serif;
- color: #fff; /* Teks putih untuk kontras dengan latar belakang gelap */
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #333; /* Dominan abu-abu gelap */
+  font-family: 'Helvetica', sans-serif;
+  color: #fff; /* Teks putih untuk kontras dengan latar belakang gelap */
 }
 
 /* Title */
 .title {
- font-size: 2rem;
- color: #fff; /* Warna teks putih */
- text-align: center;
- margin-bottom: 30px;
+  font-size: 2rem;
+  color: #fff; /* Warna teks putih */
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 /* Subtitle for sections */
 .subtitle {
- font-size: 1.5rem;
- color: #ccc; /* Abu-abu terang untuk subjudul */
- margin-bottom: 15px;
- font-weight: 600;
+  font-size: 1.5rem;
+  color: #ccc; /* Abu-abu terang untuk subjudul */
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 /* Input for Date Filters */
 .filterContainer {
- display: flex;
- justify-content: center;
- gap: 10px;
- margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .inputDate, .searchBar, .marginInput {
- padding: 8px 12px;
- border: 1px solid #666; /* Border abu-abu gelap */
- border-radius: 4px;
- font-size: 1rem;
- background-color: #444; /* Latar belakang abu-abu gelap */
- color: #fff; /* Teks putih */
+  padding: 8px 12px;
+  border: 1px solid #666; /* Border abu-abu gelap */
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #444; /* Latar belakang abu-abu gelap */
+  color: #fff; /* Teks putih */
 }
 
 .marginInputContainer {
- display: flex;
- flex-direction: column;
- align-items: center;
- margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 /* Chart Container */
 .chartContainer {
- margin-top: 30px;
- display: flex;
- flex-direction: column;
- align-items: center;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .chartContainer h2 {
- margin-bottom: 20px;
- color: #fff; /* Teks putih untuk judul grafik */
+  margin-bottom: 20px;
+  color: #fff; /* Teks putih untuk judul grafik */
 }
 
 /* Table Styling */
 .reportTable {
- width: 100%;
- border-collapse: collapse;
- margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
 }
 
 .reportTable th,
 .reportTable td {
- padding: 12px;
- text-align: center;
- border: 1px solid #666; /* Border abu-abu gelap */
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #666; /* Border abu-abu gelap */
 }
 
 .reportTable th {
- background-color: #555; /* Latar belakang abu-abu gelap untuk header */
- color: white;
- font-size: 1rem;
+  background-color: #555; /* Latar belakang abu-abu gelap untuk header */
+  color: white;
+  font-size: 1rem;
 }
 
 .reportTable td {
- background-color: #444; /* Latar belakang abu-abu gelap untuk baris tabel */
- font-size: 1rem;
+  background-color: #444; /* Latar belakang abu-abu gelap untuk baris tabel */
+  font-size: 1rem;
 }
 
 .reportTable tr:nth-child(even) {
- background-color: #555; /* Ganti warna latar belakang baris genap */
+  background-color: #555; /* Ganti warna latar belakang baris genap */
 }
 
 .reportTable tr:hover {
- background-color: #666; /* Efek hover lebih terang */
+  background-color: #666; /* Efek hover lebih terang */
 }
 
 /* Total Penjualan and Laba Section */
 .totalContainer {
- display: flex;
- justify-content: space-between;
- align-items: center;
- margin-top: 30px;
- padding: 15px;
- background-color: #444; /* Latar belakang abu-abu gelap */
- border-radius: 6px;
- font-size: 1.2rem;
- font-weight: bold;
- color: #fff; /* Teks putih */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #444; /* Latar belakang abu-abu gelap */
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff; /* Teks putih */
 }
 
 .totalContainer h3 {
- margin: 0;
+  margin: 0;
 }
 
 /* Export Button */
 .exportButton {
- display: block;
- width: 100%;
- max-width: 200px;
- margin: 20px auto;
- padding: 12px;
- background-color: #007bff; /* Warna tombol biru terang */
- color: white;
- border: none;
- border-radius: 6px;
- font-size: 1.1rem;
- cursor: pointer;
- text-align: center;
- transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 20px auto;
+  padding: 12px;
+  background-color: #007bff; /* Warna tombol biru terang */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
 }
 
 .exportButton:hover {
- background-color: #0056b3; /* Warna tombol saat hover */
+  background-color: #0056b3; /* Warna tombol saat hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
- .container {
-   padding: 10px;
- }
+  .container {
+    padding: 10px;
+  }
 
- .filterContainer {
-   flex-direction: column;
-   align-items: center;
- }
+  .filterContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Slightly reduce gap for better fit */
+  }
 
- .inputDate, .searchBar, .marginInput {
-   width: 100%;
- }
+  .inputDate, .searchBar, .marginInput {
+    width: 100%;
+    font-size: 0.9rem; /* Slightly smaller font for mobile */
+  }
 
- .chartContainer {
-   margin-top: 20px;
- }
+  .chartContainer {
+    margin-top: 20px;
+  }
 
- .totalContainer {
-   flex-direction: column;
-   align-items: flex-start;
- }
+  .totalContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1rem;
+  }
 
- .exportButton {
-   width: 100%;
- }
+  .exportButton {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Table Styling */
+.reportTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.reportTable th,
+.reportTable td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #666; /* Border abu-abu gelap */
+}
+
+.reportTable th {
+  background-color: #555; /* Latar belakang abu-abu gelap untuk header */
+  color: white;
+  font-size: 1rem;
+}
+
+.reportTable td {
+  background-color: #444; /* Latar belakang abu-abu gelap untuk baris tabel */
+  font-size: 1rem;
+}
+
+.reportTable tr:nth-child(even) {
+  background-color: #555; /* Ganti warna latar belakang baris genap */
+}
+
+.reportTable tr:hover {
+  background-color: #666; /* Efek hover lebih terang */
+}
+
+/* Menyembunyikan tabel pada perangkat mobile */
+@media (max-width: 768px) {
+  .reportTable {
+    display: none; /* Menyembunyikan tabel pada perangkat mobile */
+  }
+
+  /* Keterangan hanya dapat diakses lewat desktop */
+  .mobileMessage {
+    display: block;
+    color: #ff0000;
+    background-color: #ccc;
+    font-size: 1.2rem;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
 }
 
 @media (max-width: 480px) {
- .title {
-   font-size: 1.8rem;
- }
+  .title {
+    font-size: 1.8rem;
+  }
 
- .subtitle {
-   font-size: 1.2rem;
- }
+  .subtitle {
+    font-size: 1.2rem;
+  }
 
- .reportTable th,
- .reportTable td {
-   padding: 8px;
- }
+  .reportTable th,
+  .reportTable td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
 
- .reportTable th {
-   font-size: 0.9rem;
- }
+  .reportTable th {
+    font-size: 0.8rem;
+  }
 
- .reportTable td {
-   font-size: 0.9rem;
- }
+  .reportTable td {
+    font-size: 0.9rem;
+  }
 
- .totalContainer {
-   font-size: 1rem;
- }
+  .totalContainer {
+    font-size: 1rem;
+  }
 
- .exportButton {
-   font-size: 1rem;
- }
+  .exportButton {
+    font-size: 1rem;
+  }
 }

@@ -3,7 +3,7 @@
  width: 100%;
  max-height: 90vh;
  padding: 80px;
- background: #f4f4f4; /* Latar belakang netral */
+ background: #f4f4f4;
  display: flex;
  flex-direction: column;
  align-items: flex-start;
@@ -18,21 +18,22 @@
  font-weight: 700;
 }
 
+/* Card Container styling */
 .cardContainer {
  margin: 20px;
  width: 100%;
  display: flex;
- flex-wrap: wrap; /* Membuat kartu membungkus ke baris berikutnya jika diperlukan */
- justify-content: space-evenly; /* Menyusun kartu secara horizontal dengan jarak antar kartu yang merata */
- gap: 20px; /* Memberikan jarak antar kartu */
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ gap: 20px;
  padding: 20px;
 }
 
 .cards {
  background-color: #f4f0f0;
  height: 300px;
- width: 100%; /* Default menjadi lebar penuh */
- max-width: 250px; /* Membatasi lebar maksimum kartu */
+ width: 100%;
+ max-width: 250px;
  padding: 20px;
  display: flex;
  flex-direction: column;
@@ -40,13 +41,13 @@
  align-items: center;
  text-align: center;
  border-radius: 15px;
- box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus untuk efek modern */
- transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus saat hover */
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cards:hover {
- transform: translateY(-10px); /* Efek angkat saat hover */
- box-shadow: 0 12px 16px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat saat hover */
+ transform: translateY(-10px);
+ box-shadow: 0 12px 16px rgba(0, 0, 0, 0.15);
 }
 
 .cards h1 {
@@ -63,15 +64,49 @@
  width: 100px;
  height: 100px;
  margin-bottom: 15px;
- transition: background-color 0.3s ease; /* Efek transisi pada gambar */
+ transition: background-color 0.3s ease;
 }
 
 .cards:hover .images {
- background-color: #ff7e5f; /* Efek perubahan warna pada gambar saat hover */
+ background-color: #ff7e5f;
 }
 
 .images img {
  width: 100%;
  height: 100%;
- object-fit: contain; /* Memastikan gambar tetap proporsional */
+ object-fit: contain;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+ .page {
+     padding: 20px;
+ }
+
+ .page span {
+     font-size: 30px;
+     margin-left: 0;
+ }
+
+ .cardContainer {
+     flex-direction: column;
+     margin: 0px;
+ }
+
+ .cards {
+     width: 90%;
+     max-width: 90%;
+     height: auto;
+     margin-bottom: 20px;
+ }
+
+ .cards h1 {
+     font-size: 16px;
+ }
+
+ .images {
+     width: 80px;
+     height: 80px;
+     padding: 15px;
+ }
 }

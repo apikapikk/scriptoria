@@ -229,7 +229,9 @@ const Report = () => {
           </div>
         </>
       )}
-
+      <div className={styles.mobileMessage}>
+        Tabel ini hanya dapat dilihat di desktop mode. Silakan gunakan laptop atau PC untuk melihatnya.
+      </div>
       {/* Tombol Ekspor */}
       <button onClick={exportToExcel} className={styles.exportButton}>Ekspor ke Excel</button>
     </div>
