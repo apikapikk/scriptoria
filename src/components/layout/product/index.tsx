@@ -14,7 +14,6 @@ interface ProductType {
 }
 
 export default function Product() {
-
   const [form, setForm] = useState({
     name_product: '',
     brand_product: '',
@@ -31,6 +30,9 @@ export default function Product() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 5;
+
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [filterType, setFilterType] = useState<string>('all');
 
   useEffect(() => {
     fetchProducts();
@@ -133,42 +135,55 @@ export default function Product() {
     setImageFile(null);
   };
 
+  // Filter dan Sorting
+  const filteredProducts = products
+    .filter(p => filterType === 'all' || p.type_product === filterType)
+    .sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.name_product.localeCompare(b.name_product);
+      } else {
+        return b.name_product.localeCompare(a.name_product);
+      }
+    });
+
+  // Pagination
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
   return (
     <div className={styles.allcontainer}>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
+        {/* Input Fields */}
         <div className={styles.formGroup}>
-        <label className={styles.label}>Nama Product</label>
-        <input type="text" name="name_product" placeholder="Nama Produk" value={form.name_product} onChange={handleChange} required className={styles.input} />
+          <label className={styles.label}>Nama Product</label>
+          <input type="text" name="name_product" value={form.name_product} onChange={handleChange} required className={styles.input} />
         </div>
         <div className={styles.formGroup}>
-        <label className={styles.label}>Brand Product</label>
-        <input type="text" name="brand_product" placeholder="Merk" value={form.brand_product} onChange={handleChange} required className={styles.input} />
+          <label className={styles.label}>Brand Product</label>
+          <input type="text" name="brand_product" value={form.brand_product} onChange={handleChange} required className={styles.input} />
         </div>
         <div className={styles.formGroup}>
-        <label className={styles.label}>Harga Product</label>
-        <input type="number" name="price_product" placeholder="Harga" value={form.price_product} onChange={handleChange} required className={styles.input} />
+          <label className={styles.label}>Harga Product</label>
+          <input type="number" name="price_product" value={form.price_product} onChange={handleChange} required className={styles.input} />
         </div>
         <div className={styles.formGroup}>
-        <label className={styles.label}>Total Stok</label>
-        <input type="number" name="stock_product" placeholder="Stok" value={form.stock_product} onChange={handleChange} required className={styles.input} />
+          <label className={styles.label}>Total Stok</label>
+          <input type="number" name="stock_product" value={form.stock_product} onChange={handleChange} required className={styles.input} />
         </div>
         <div className={styles.formGroup}>
-        <label className={styles.label}>Tipe Produk</label>
-        <select name="type_product" value={form.type_product} onChange={handleChange} required className={styles.select}>
-          <option value="">Pilih Tipe</option>
-          <option value="Elektronik">Alat Alat</option>
-          <option value="Fashion">Bahan Bahan</option>
-          <option value="Makanan">Karya</option>
-        </select>
+          <label className={styles.label}>Tipe Produk</label>
+          <select name="type_product" value={form.type_product} onChange={handleChange} required className={styles.select}>
+            <option value="">Pilih Tipe</option>
+            <option value="Alat Alat">Alat Alat</option>
+            <option value="Bahan Bahan">Bahan Bahan</option>
+            <option value="Karya">Karya</option>
+          </select>
         </div>
         <div className={styles.formGroup}>
-        <label className={styles.label}>Gambar Produk</label>
-        <input type="file" accept="image/*" onChange={handleImageChange} className={styles.fileInput} />
+          <label className={styles.label}>Gambar Produk</label>
+          <input type="file" accept="image/*" onChange={handleImageChange} className={styles.fileInput} />
         </div>
         <button type="submit" disabled={loading} className={styles.buttonAdd}>
           {loading ? (editMode ? 'Menyimpan Perubahan...' : 'Mengunggah...') : (editMode ? 'Perbarui Produk' : 'Tambah Produk')}
@@ -185,6 +200,27 @@ export default function Product() {
         )}
       </form>
 
+      {/* Sorting dan Filtering */}
+      <div className={styles.sortFilterContainer}>
+        <div>
+          <label>Urutkan Nama:</label>
+          <select onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')} value={sortOrder} className={styles.select}>
+            <option value="asc">A - Z</option>
+            <option value="desc">Z - A</option>
+          </select>
+        </div>
+        <div>
+          <label>Filter Tipe:</label>
+          <select onChange={(e) => setFilterType(e.target.value)} value={filterType} className={styles.select}>
+            <option value="all">Semua</option>
+            <option value="Alat Alat">Alat Alat</option>
+            <option value="Bahan Bahan">Bahan Bahan</option>
+            <option value="Karya">Karya</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Tabel Produk */}
       <table className={styles.table}>
         <thead>
           <tr>
@@ -202,16 +238,8 @@ export default function Product() {
             <tr key={p.id}>
               <td>
                 {p.image_products ? (
-                  <Image
-                    src={p.image_products}
-                    alt={p.name_product}
-                    width={120}
-                    height={120}
-                    style={{ objectFit: 'cover', borderRadius: '8px' }}
-                  />
-                ) : (
-                  "Tidak ada gambar"
-                )}
+                  <Image src={p.image_products} alt={p.name_product} width={120} height={120} style={{ objectFit: 'cover', borderRadius: '8px' }} />
+                ) : "Tidak ada gambar"}
               </td>
               <td>{p.name_product}</td>
               <td>{p.brand_product}</td>
@@ -227,6 +255,7 @@ export default function Product() {
         </tbody>
       </table>
 
+      {/* Pagination */}
       <div className={styles.pagination}>
         {Array.from({ length: totalPages }, (_, i) => (
           <button

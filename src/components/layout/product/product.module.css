@@ -109,3 +109,16 @@
 .pageButton.active {
  background-color: #555;
 }
+
+.sortFilterContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sortFilterContainer label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
