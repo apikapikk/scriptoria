@@ -15,17 +15,17 @@
 }
 
 .headerContainer h1 {
- padding: 60px;
+ padding: 80px;
  width: 50%;
  color: white;
- font-size: 60px;
+ font-size: 40px;
  font-family: "Space Grotesk", sans-serif;
 }
 
 /* Image container styling */
 .images {
  padding: 40px;
- width: 700px;
+ width: 600px;
  height: auto;
  justify-content: flex-end;
  align-items: center;
