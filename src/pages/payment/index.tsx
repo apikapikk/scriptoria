@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Payment from '@/components/layout/payment'
 import BaseNavbar from '@/components/layout/baseNavbar'
 
+
 export default function PaymentPage() {
   const router = useRouter();
   const [checkingAuth, setCheckingAuth] = useState(true);

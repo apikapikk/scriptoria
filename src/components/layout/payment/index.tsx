@@ -4,7 +4,11 @@ import { supabase } from "../../../utils/supabase";
 import { useRouter } from "next/router";
 import styles from "./payment.module.css";
 import Image from "next/image";
-import { jsPDF } from "jspdf"; // Import jsPDF
+import { jsPDF } from "jspdf"; 
+import dynamic from "next/dynamic";
+const QRScanner = dynamic(() => import("../../hooks/qrscan/qrscanner"), { ssr: false });
+
+
 
 type Product = {
   id: string;
@@ -41,6 +45,7 @@ const KasirPage = () => {
   const [payment, setPayment] = useState<number>(0);
   const [buyerName, setBuyerName] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showScanner, setShowScanner] = useState(false);
 
 
   useEffect(() => {
@@ -57,6 +62,32 @@ const KasirPage = () => {
     };
     fetchData();
   }, [router]);
+
+  const handleQRScan = (decodedText: string) => {
+    const found = products.find(p => p.id === decodedText);
+  
+    if (found) {
+      const existingItem = cart.find(item => item.id === found.id);
+      
+      if (existingItem) {
+        setCart(prev => prev.map(item =>
+          item.id === found.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ));
+      } else {
+        setCart(prev => [...prev, { ...found, quantity: 1 }]);
+      }
+  
+      console.log(`Produk "${found.name_product}" ditambahkan ke keranjang!`);
+    } else {
+      console.log("Produk tidak ditemukan!");
+    }
+  
+    // Jangan setShowScanner(false) di sini!
+  };
+  
+  
 
   const addToCart = (product: Product) => {
     const exists = cart.find((item) => item.id === product.id);
@@ -203,6 +234,13 @@ const KasirPage = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Kasir - {user?.name}</h1>
+      <button
+        onClick={() => setShowScanner(prev => !prev)}
+        className={styles.button}
+      >
+        {showScanner ? "Tutup Scanner" : "Scan QR Produk"}
+      </button>
+      {showScanner && <QRScanner key="qr-scanner" onScanSuccess={handleQRScan} />}
 
       <div className={styles.searchContainer}>
         <input

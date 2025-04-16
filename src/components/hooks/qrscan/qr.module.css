@@ -1,0 +1,14 @@
+.qrWrapper {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 1rem;
+}
+
+.qrReader {
+ width: 200px;
+ height: 200px;
+ border: 2px solid #ccc;
+ border-radius: 10px;
+ overflow: hidden;
+}

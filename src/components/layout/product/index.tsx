@@ -2,6 +2,11 @@ import styles from './product.module.css';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../../utils/supabase';
 import Image from 'next/image';
+import { QRCodeCanvas } from 'qrcode.react';
+import QRCode from 'qrcode';
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+
 
 interface ProductType {
   id: string;
@@ -37,6 +42,19 @@ export default function Product() {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  const handleDownloadQR = async (productId: string) => {
+    const qrElement = document.getElementById(`qr-${productId}`);
+    if (!qrElement) return;
+  
+    const canvas = await html2canvas(qrElement);
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF();
+  
+    pdf.addImage(imgData, 'PNG', 20, 20, 80, 80);
+    pdf.save(`QR-${productId}.pdf`);
+  };
+  
 
   const fetchProducts = async () => {
     const { data, error } = await supabase.from('products').select('*');
@@ -135,6 +153,71 @@ export default function Product() {
     setImageFile(null);
   };
 
+  const handleBatchDownload = async () => {
+    const pdf = new jsPDF();
+    const padding = 20;
+    let yOffset = padding;
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const maxWidth = 120; // Tentukan lebar maksimal gambar QR
+    const maxHeight = 120; // Tentukan tinggi maksimal gambar QR
+  
+    for (let i = 0; i < products.length; i++) {
+      const p = products[i];
+      const qrImageData = await QRCode.toDataURL(p.id);
+  
+      const tempDiv = document.createElement('div');
+      tempDiv.style.padding = '10px';
+      tempDiv.style.backgroundColor = 'white';
+      tempDiv.style.display = 'inline-block';
+      tempDiv.style.borderRadius = '8px';
+      tempDiv.style.fontFamily = 'sans-serif';
+  
+      tempDiv.innerHTML = `
+        <div style="text-align:center;">
+          <img src="${qrImageData}" width="100" height="100" />
+          <div style="margin-top:10px; font-size:14px;">
+            <strong>${p.name_product}</strong><br />
+            ${p.brand_product}<br />
+            Harga: Rp${p.price_product}<br />
+            Stok: ${p.stock_product}<br />
+            Tipe: ${p.type_product}
+          </div>
+        </div>
+      `;
+  
+      document.body.appendChild(tempDiv);
+      const canvas = await html2canvas(tempDiv);
+      const imgData = canvas.toDataURL('image/png');
+  
+      // Tentukan ukuran gambar dengan skala proporsional tetap
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const aspectRatio = imgWidth / imgHeight;
+  
+      // Tentukan ukuran gambar agar proporsional
+      let width = maxWidth;
+      let height = maxHeight;
+  
+      // Memastikan gambar QR tetap proporsional
+      if (imgWidth > imgHeight) {
+        // QR code yang lebih lebar dari tinggi
+        height = width / aspectRatio;
+      } else {
+        // QR code yang lebih tinggi dari lebar
+        width = height * aspectRatio;
+      }
+      // Pastikan ukuran gambar tidak melebihi halaman PDF
+      if (yOffset + height > pageHeight - padding) {
+        pdf.addPage();
+        yOffset = padding;
+      }
+      pdf.addImage(imgData, 'PNG', padding, yOffset, width, height);
+      yOffset += height + 20;
+      document.body.removeChild(tempDiv);
+    }
+    pdf.save('semua_qr_produk.pdf');
+  };
+
   // Filter dan Sorting
   const filteredProducts = products
     .filter(p => filterType === 'all' || p.type_product === filterType)
@@ -151,6 +234,7 @@ export default function Product() {
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  
 
   return (
     <div className={styles.allcontainer}>
@@ -225,6 +309,7 @@ export default function Product() {
         <thead>
           <tr>
             <th>Gambar</th>
+            <th>QR Code</th>
             <th>Nama</th>
             <th>Merk</th>
             <th>Harga</th>
@@ -241,6 +326,14 @@ export default function Product() {
                   <Image src={p.image_products} alt={p.name_product} width={120} height={120} style={{ objectFit: 'cover', borderRadius: '8px' }} />
                 ) : "Tidak ada gambar"}
               </td>
+              <td>
+              <div
+                id={`qr-${p.id}`}style={{ padding: '10px', backgroundColor: 'white', display: 'inline-block', borderRadius: '8px' }}><QRCodeCanvas value={p.id} size={120} />
+              </div>
+              <button onClick={() => handleDownloadQR(p.id)} className={styles.button}>
+                Unduh QR
+              </button>
+              </td>
               <td>{p.name_product}</td>
               <td>{p.brand_product}</td>
               <td>{p.price_product}</td>
@@ -249,11 +342,16 @@ export default function Product() {
               <td>
                 <button onClick={() => handleEdit(p)} className={styles.button}>Edit</button>
                 <button onClick={() => handleDelete(p.id)} className={styles.button}>Hapus</button>
+                <button onClick={() => alert(`ID Produk: ${p.id}`)} className={styles.button}>Lihat QR</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      <button onClick={handleBatchDownload} className={styles.button}>
+        Unduh Semua QR Produk
+      </button>
 
       {/* Pagination */}
       <div className={styles.pagination}>
