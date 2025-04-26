@@ -148,9 +148,7 @@ const KasirPage = () => {
         })
         .select()
         .single();
-  
       if (trxError || !trx) throw new Error("Gagal simpan transaksi");
-  
       for (const item of cart) {
         await supabase.from("transaction_items").insert({
           transaction_id: trx.id_transaction,

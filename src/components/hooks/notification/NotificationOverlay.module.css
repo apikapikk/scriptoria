@@ -1,0 +1,62 @@
+/* Posisi ikon lonceng */
+.iconWrapper {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background-color: rgb(33, 33, 33);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.iconWrapper:hover {
+  transform: scale(1.2);
+}
+
+/* Desain toast */
+.toast {
+  position: fixed;
+  bottom: 80px;
+  right: 1rem;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: toastIn 0.5s forwards;
+  z-index: 9999;
+}
+
+.toastMessage {
+  margin-bottom: 10px;
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.checkboxWrapper input {
+  margin-right: 5px;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
