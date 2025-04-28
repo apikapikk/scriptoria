@@ -28,18 +28,17 @@ const HomeSecondPage = () => {
     router.push(`/${path}`);
   };
 
-  // Membuat list kartu sesuai dengan role
   const cards = [
     { title: "Managemen Karyawan", path: "employee", image: "/employeeIco.png", visible: position === "Manager" },
     { title: "Managemen Produk", path: "product", image: "/produkIco.png", visible: true },
     { title: "Laporan Penjualan", path: "report", image: "/reportIco.png", visible: position === "Manager" },
     { title: "Tinggalkan Catatan", path: "note", image: "/description.png", visible: position === "Manager" },
     { title: "Manajemen Penjualan", path: "payment", image: "/sellIco.png", visible: true },
-    //{ title: "Chat Group", path: "chat", image: "/produkIco.png", visible: true },
+    { title: "Chat Group", path: "chat", image: "/produkIco.png", visible: true },
   ];
 
   return (
-    <div className={styles.page}>
+    <div className={styles.homePage}>
       <span>Kategori</span>
       <div className={styles.cardContainer}>
         {cards
@@ -66,4 +65,4 @@ const HomeSecondPage = () => {
   );
 };
 
-export default HomeSecondPage;
+export default HomeSecondPage
