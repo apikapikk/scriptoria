@@ -16,13 +16,12 @@ const LoginForm = () => {
     const username = (form.username as HTMLInputElement).value;
     const password = (form.password as HTMLInputElement).value;
 
-    // Cari user berdasarkan username dan password
     const { data, error } = await supabase
       .from("employees")
       .select("*")
       .eq("username_employee", username)
       .eq("password_employee", password)
-      .single(); // pastikan hanya dapat 1
+      .single(); 
 
     if (error || !data) {
       alert("Username atau password salah.");
@@ -34,8 +33,8 @@ const LoginForm = () => {
         username: data.username_employee,
         name: data.name_employee,
         position: data.position_employee,
-      }), { expires: 1 }); // expires dalam hari (1 = 1 hari)
-      
+      }), { expires: 1 });
+      window.dispatchEvent(new CustomEvent('user-login', { detail: { isLoggedIn: true } }));
       router.push("/home");
 
   };
@@ -44,12 +43,9 @@ const LoginForm = () => {
     const cookie = Cookies.get("user");
   if (cookie) {
     const user = JSON.parse(cookie);
-
-    // Cek apakah role-nya sesuai misalnya hanya Admin / Manager yang boleh langsung masuk
     if (user.position === "Manager" || user.position === "Admin") {
       router.push("/home");
     } else {
-      // Kalau bukan role yang sah, hapus cookie biar tetap di halaman login
       Cookies.remove("user");
     }
   }

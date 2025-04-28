@@ -8,6 +8,7 @@ const BaseNavbar = () => {
     const router = useRouter()
     const handleLogout = () => {
         Cookies.remove("user");
+        window.dispatchEvent(new CustomEvent('user-logout', { detail: { isLoggedIn: false } }));
         console.log("Logout clicked");
         router.push("/"); 
     };

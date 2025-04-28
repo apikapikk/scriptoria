@@ -35,6 +35,7 @@ const HomeSecondPage = () => {
     { title: "Laporan Penjualan", path: "report", image: "/reportIco.png", visible: position === "Manager" },
     { title: "Tinggalkan Catatan", path: "note", image: "/description.png", visible: position === "Manager" },
     { title: "Manajemen Penjualan", path: "payment", image: "/sellIco.png", visible: true },
+    //{ title: "Chat Group", path: "chat", image: "/produkIco.png", visible: true },
   ];
 
   return (

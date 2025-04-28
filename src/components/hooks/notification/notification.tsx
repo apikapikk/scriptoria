@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import Cookies from 'js-cookie';
 import styles from './NotificationOverlay.module.css';
+import Cookies from 'js-cookie';
 
 type Notification = {
   id: string;
@@ -9,29 +9,36 @@ type Notification = {
   isDone?: boolean;
 };
 
-
 export default function NotificationOverlay() {
   const [notes, setNotes] = useState<Notification[]>([]);
   const [showToast, setShowToast] = useState(false);
-  const [isAllowed, setIsAllowed] = useState(false);
   const [hasNewNotification, setHasNewNotification] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const latestIdRef = useRef<string | null>(null);
 
+  // Pengecekan cookie setiap beberapa detik
   useEffect(() => {
-    const cookie = Cookies.get('user');
-    if (cookie) {
-      try {
-        const user = JSON.parse(cookie);
-        if (user.position === 'Employee' || user.position === 'Manager') {
-          setIsAllowed(true);
-        }
-      } catch (e) {
-        console.error('Gagal parse cookie user:', e);
-      }
-    }
+    const checkLoginStatus = () => {
+      const cookie = Cookies.get('user');
+      setIsLoggedIn(!!cookie);
+    };
+
+    checkLoginStatus(); // cek sekali pas mount
+
+    const interval = setInterval(checkLoginStatus, 3000); // cek tiap 3 detik
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      setNotes([]);
+      setShowToast(false);
+      setHasNewNotification(false);
+      latestIdRef.current = null;
+      return;
+    }
+
     let interval: NodeJS.Timeout;
 
     const fetchNotes = async () => {
@@ -48,7 +55,7 @@ export default function NotificationOverlay() {
           }
         }
       } catch (error) {
-        console.error('failed to catch api:', error);
+        console.error('failed to fetch api:', error);
       }
     };
 
@@ -57,35 +64,21 @@ export default function NotificationOverlay() {
       interval = setInterval(fetchNotes, 5000);
     };
 
-    const stopPolling = () => {
-      clearInterval(interval);
-    };
+    const stopPolling = () => clearInterval(interval);
 
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        startPolling(); // Mulai polling ketika halaman aktif
-      } else {
-        stopPolling(); // Stop polling ketika halaman tidak aktif
-      }
-    };
-
-    if (isAllowed) {
-      document.addEventListener('visibilitychange', handleVisibilityChange);
-      startPolling();
-    }
+    startPolling();
 
     return () => {
-      clearInterval(interval);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      stopPolling();
     };
-  }, [isAllowed]);
+  }, [isLoggedIn]);
 
   const handleShowToast = () => {
     if (hasNewNotification) {
-      setShowToast(true);  // Tampilkan toast saat lonceng diklik
-      setHasNewNotification(false); // Reset status notifikasi baru
+      setShowToast(true);
+      setHasNewNotification(false);
     } else {
-      setShowToast(!showToast);  // Jika tidak ada notifikasi baru, toggle toast
+      setShowToast(!showToast);
     }
   };
 
@@ -96,21 +89,20 @@ export default function NotificationOverlay() {
     } catch (error) {
       console.error('Gagal memindahkan note:', error);
     }
-  };  
+  };
 
   const formatDate = (timestamp: string | null | undefined) => {
     if (!timestamp) return 'Tanggal tidak tersedia';
-  
+
     const date = new Date(timestamp);
     if (isNaN(date.getTime())) return 'Tanggal tidak valid';
-  
+
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
   };
-  
-  
- 
 
-  if (!isAllowed) return null;
+  if (!isLoggedIn) {
+    return null; // Gak render lonceng
+  }
 
   return (
     <div>
