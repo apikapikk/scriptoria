@@ -4,6 +4,16 @@ Website ini dikembangkan untuk membantu UMKM Alat Tulis dalam mempermudah pengel
 
 ---
 
+---
+
+## 🌐 Url Prodi
+
+Berikut adalah Url Prodi Pendidikan Teknologi Informasi:  
+🔗 [https://pendidikan-ti.ft.unesa.ac.id/](https://pendidikan-ti.ft.unesa.ac.id/)
+
+---
+
+
 ## 📌 Fitur Umum
 
 - 🔐 Login berdasarkan peran (Admin/Karyawan)
