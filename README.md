@@ -134,4 +134,31 @@ Karyawan memiliki akses terbatas sesuai kebutuhan operasional kasir.
 
 Open Source — bebas digunakan dan dimodifikasi sesuai kebutuhan, dengan tetap mencantumkan atribusi yang sesuai.
 
+## 🚀 Cara Menjalankan Project Ini
+
+1. **Clone repository**
+   ```bash
+   git clone https://github.com/apikapikk/scriptoria.git
+   cd scriptoria
+
+ Install dependencies
+
+    npm install
+  # atau jika menggunakan yarn:
+    yarn install
+  
+  Buat file konfigurasi .env.local
+  Contoh isi file .env.local (gunakan kredensial dari Supabase kalian):
+    
+    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+  buat database di sql editor supabase, masukkan database dengan cara copy dari folder _database
+  
+  Jalankan di mode development
+  
+    npm run dev
+  
+  Aplikasi akan berjalan di: http://localhost:3000
+
 ---
