@@ -16,7 +16,7 @@ export default function ReportPage() {
     }
 
     const user = JSON.parse(cookie);
-    if (user.position !== "Manager" && user.position !== "Employee") {
+    if (user.position !== "Manager") {
       alert("Akses ditolak. Halaman ini hanya untuk admin.");
       router.push("/login");
       return;
