@@ -16,7 +16,7 @@ const Home = () => {
 
     // Cek role jika perlu (misalnya hanya admin boleh)
     const user = JSON.parse(cookie);
-    if (user.position !== "Manager") {
+    if (user.position !== "Manager" && user.position !== "Employee") {
       alert("Akses ditolak. Halaman ini hanya untuk admin.");
       router.push("/login");
       return;
