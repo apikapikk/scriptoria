@@ -1,11 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '../../../utils/supabase';
 import styles from './note.module.css';
+
+interface DoneNotification {
+  id: number;
+  message: string;
+  created_at: string;
+  done_at: string;
+}
 
 export default function NotePage() {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [doneNotes, setDoneNotes] = useState<DoneNotification[]>([]);
+
+  useEffect(() => {
+    fetchDoneNotifications();
+  }, []);
+
+  const fetchDoneNotifications = async () => {
+    const { data, error } = await supabase
+      .from('done_notifications')
+      .select('*')
+      .order('done_at', { ascending: false });
+
+    if (error) {
+      console.error('Gagal mengambil data done_notifications:', error.message);
+    } else {
+      setDoneNotes(data || []);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,18 +43,29 @@ export default function NotePage() {
     setLoading(true);
 
     try {
-      const { error } = await supabase
+      const { error: insertError } = await supabase
         .from('notifications')
         .insert([{ message, created_at: new Date() }]);
 
-      if (error) {
-        setError(error.message);
+      if (insertError) {
+        setError(insertError.message);
         return;
       }
 
       setMessage('');
       setError('');
       alert('Catatan berhasil dikirim!');
+
+      // Tambahkan juga ke done_notifications
+      const { error: doneError } = await supabase
+        .from('done_notifications')
+        .insert([{ message, created_at: new Date() }]);
+
+      if (doneError) {
+        console.error('Gagal memasukkan ke done_notifications:', doneError.message);
+      } else {
+        fetchDoneNotifications(); // Refresh tabel
+      }
     } finally {
       setLoading(false);
     }
@@ -53,6 +89,33 @@ export default function NotePage() {
           </button>
         </div>
       </form>
+
+      <div className={styles.tableWrapper}>
+  <h2 className={styles.subHeading}>Catatan Terkirim</h2>
+  <div className={styles.tableScroll}>
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Pesan</th>
+          <th>Waktu Dibuat</th>
+          <th>Waktu Selesai</th>
+        </tr>
+      </thead>
+      <tbody>
+        {doneNotes.map((note) => (
+          <tr key={note.id}>
+            <td>{note.id}</td>
+            <td>{note.message}</td>
+            <td>{new Date(note.created_at).toLocaleString()}</td>
+            <td>{new Date(note.done_at).toLocaleString()}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
     </div>
   );
 }
