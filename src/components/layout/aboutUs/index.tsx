@@ -1,4 +1,3 @@
-import Footer from "../footer";
 import styles from "./aboutUs.module.css"
 import Image from "next/image";
 
@@ -15,7 +14,6 @@ const AboutUs = () => {
                 Kami memahami tantangan dalam menjalankan bisnis alat tulis, itulah sebabnya Scriptoria dirancang untuk memberikan kemudahan dalam manajemen toko, meningkatkan produktivitas, dan membantu bisnis Anda berkembang. Percayakan operasional toko Anda pada teknologi yang cerdas dan praktis bersama Scriptoria!</p>
             </div>
         </div>
-        <Footer />
         </>
         
     )

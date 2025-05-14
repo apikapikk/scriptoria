@@ -1,3 +1,4 @@
+import AboutGroup from "@/components/layout/aboutGroup";
 import AboutUs from "@/components/layout/aboutUs";
 import Navbar from "@/components/layout/navbar";
 import PreviewProduct from "@/components/layout/previewProduct";
@@ -39,6 +40,7 @@ export default function Home() {
         <div id="home" className="section"><PreviewProduct /></div>
         <div id="services" className="section"><Services /></div>
         <div id="about" className="section"><AboutUs /></div>
+        <div id="aboutGroup" className="section"><AboutGroup /></div>
       </div>
     </div>
   );
