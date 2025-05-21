@@ -29,8 +29,8 @@ const HomeSecondPage = () => {
   };
 
   const cards = [
-    { title: "Managemen Karyawan", path: "employee", image: "/employeeIco.png", visible: position === "Manager" },
-    { title: "Managemen Produk", path: "product", image: "/produkIco.png", visible: true },
+    { title: "Manajemen Karyawan", path: "employee", image: "/employeeIco.png", visible: position === "Manager" },
+    { title: "Manajemen Produk", path: "product", image: "/produkIco.png", visible: true },
     { title: "Laporan Penjualan", path: "report", image: "/reportIco.png", visible: position === "Manager" },
     { title: "Tinggalkan Catatan", path: "note", image: "/description.png", visible: position === "Manager" },
     { title: "Manajemen Penjualan", path: "payment", image: "/sellIco.png", visible: true },

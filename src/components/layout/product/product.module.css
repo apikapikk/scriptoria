@@ -246,3 +246,31 @@
   display: flex;
   justify-content: center;
 }
+
+.buttonEdit {
+  background-color: #1f6feb; /* biru */
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buttonEdit:hover {
+  background-color: #3c8dff;
+}
+
+.buttonDelete {
+  background-color: #d32f2f; /* merah */
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buttonDelete:hover {
+  background-color: #ff5252;
+}

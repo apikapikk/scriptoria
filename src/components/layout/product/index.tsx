@@ -340,8 +340,8 @@ export default function Product() {
               <td>{p.stock_product}</td>
               <td>{p.type_product}</td>
               <td>
-                <button onClick={() => handleEdit(p)} className={styles.button}>Edit</button>
-                <button onClick={() => handleDelete(p.id)} className={styles.button}>Hapus</button>
+              <button onClick={() => handleEdit(p)} className={styles.buttonEdit}>Edit</button>
+              <button onClick={() => handleDelete(p.id)} className={styles.buttonDelete}>Hapus</button>
                 <button onClick={() => alert(`ID Produk: ${p.id}`)} className={styles.button}>Lihat QR</button>
               </td>
             </tr>
