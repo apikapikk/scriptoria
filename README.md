@@ -1,19 +1,54 @@
 # 💼 Website Sistem Kasir untuk UMKM Alat Tulis
-
 Website ini dikembangkan untuk membantu UMKM Alat Tulis dalam mempermudah pengelolaan toko secara digital. Sistem ini memiliki dua peran utama, yaitu **Admin (Pemilik Toko)** dan **Karyawan (Kasir)**, yang masing-masing memiliki hak akses fitur yang berbeda.
 
 ---
-
----
-
 ## 🌐 Url Prodi
-
 Berikut adalah Url Prodi Pendidikan Teknologi Informasi:  
 🔗 [https://pendidikan-ti.ft.unesa.ac.id/](https://pendidikan-ti.ft.unesa.ac.id/)
 
 ---
+## 👨‍💻 Anggota Tim Pengembang
 
+| No. | Nama                             | NIM           |
+|-----|----------------------------------|---------------|
+| 1.  | Madhuri Lailatul Hamidah         | 23050974057   |
+| 2.  | Febti Sofia Loren                | 23050974058   |
+| 3.  | Muhammad Alfan Muwaffiqul Ihsan  | 23050974072   |
+| 4.  | Narendra Adi Nugraha             | 23050974076   |
 
+---
+## 🛠️ Teknologi yang Digunakan
+
+- **Frontend**: Next.js (Pages Router) + TypeScript
+- **Styling**: CSS Modules
+- **Backend/API**: Next.js API Routes (untuk notifikasi)
+- **Database**: Supabase (PostgreSQL)
+- **Storage**: Supabase Storage
+- **QR Scanner**: `html5-qrcode` / `react-qr-reader`
+- **Chart**: Recharts
+- **Realtime**: Supabase Realtime Subscriptions
+- **Deployment**: Vercel
+
+---
+## 🔗 API Endpoint
+
+| Method | Endpoint              | Deskripsi                          |
+|--------|------------------------|-------------------------------------|
+| GET    | `/api/notification`    | Mengambil daftar notifikasi         |
+| POST   | `/api/notification`    | Menambahkan notifikasi baru         |
+
+> Catatan: Data produk, transaksi, dan pengguna dikelola langsung melalui Supabase.
+
+---
+## 🧠 Struktur Proyek
+
+public/ # Aset publik (logo, gambar)
+src/
+ ├── components/ # Komponen UI seperti CardProduk, Header, dll.
+ ├── lib/ # Konfigurasi Supabase Client
+ ├── pages/ # Halaman utama (dashboard, kasir, login)
+ │ └── api/notification # API routes notifikasi
+---
 ## 📌 Fitur Umum
 
 - 🔐 Login berdasarkan peran (Admin/Karyawan)
@@ -98,37 +133,12 @@ Karyawan memiliki akses terbatas sesuai kebutuhan operasional kasir.
 - Karyawan dapat melihat pesan dari Admin dan mengirimkan validasi atau respon atas tugas
 
 ---
-
-## 🛠️ Teknologi yang Digunakan
-
-- **Frontend**: Next.js (Pages Router) dengan TypeScript
-- **Backend/API**: 
-  - Menggunakan Next.js API Routes untuk sebagian fitur
-- **Database**: Supabase (PostgreSQL)
-- **Storage**: Supabase Storage (untuk menyimpan file seperti gambar produk, dll.)
-- **Deployment**: Vercel / Railway (opsional)
-
----
-
 ## 📎 Catatan Tambahan
 
 - Menggunakan UI/UX sederhana dan responsif
 - Role-based access control manual (tanpa Supabase Auth)
 - Komunikasi internal berbasis catatan tugas
 - Penyimpanan file terintegrasi dengan Supabase Storage
-
----
-
-## 👨‍💻 Anggota Tim Pengembang
-
-| No. | Nama                             | NIM           |
-|-----|----------------------------------|---------------|
-| 1.  | Madhuri Lailatul Hamidah         | 23050974057   |
-| 2.  | Febti Sofia Loren                | 23050974058   |
-| 3.  | Muhammad Alfan Muwaffiqul Ihsan  | 23050974072   |
-| 4.  | Narendra Adi Nugraha             | 23050974076   |
-
----
 
 ## 📄 Lisensi
 
