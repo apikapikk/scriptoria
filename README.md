@@ -42,12 +42,15 @@ Berikut adalah Url Prodi Pendidikan Teknologi Informasi:
 ---
 ## 🧠 Struktur Proyek
 
+```
 public/ # Aset publik (logo, gambar)
 src/
  ├── components/ # Komponen UI seperti CardProduk, Header, dll.
  ├── lib/ # Konfigurasi Supabase Client
  ├── pages/ # Halaman utama (dashboard, kasir, login)
  │ └── api/notification # API routes notifikasi
+
+```
 ---
 ## 📌 Fitur Umum
 
