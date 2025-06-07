@@ -6,6 +6,10 @@ Website ini dikembangkan untuk membantu UMKM Alat Tulis dalam mempermudah pengel
 Berikut adalah Url Prodi Pendidikan Teknologi Informasi:  
 🔗 [https://pendidikan-ti.ft.unesa.ac.id/](https://pendidikan-ti.ft.unesa.ac.id/)
 
+
+🔗 https://scriptoria-indol.vercel.app/
+
+    U: admin P:admin1234
 ---
 ## 👨‍💻 Anggota Tim Pengembang
 
