@@ -81,6 +81,7 @@ Admin memiliki **akses penuh** ke seluruh fitur dalam sistem.
 - **Read**: Lihat semua produk
 - **Update**: Ubah nama atau harga produk
 - **Delete**: Hapus produk yang tidak dijual lagi
+Generate QR code otomatis
 
 ### 🛒 Manajemen Penjualan & Transaksi
 
@@ -95,6 +96,7 @@ Admin memiliki **akses penuh** ke seluruh fitur dalam sistem.
 - **Read**: Lihat detail transaksi
 - **Update**: Koreksi data transaksi
 - **Delete**: Hapus transaksi dengan konfirmasi
+scan qr 
 
 ### 📊 Laporan Keuangan
 - **Read**: Lihat laporan penjualan harian dan bulanan otomatis dari transaksi
