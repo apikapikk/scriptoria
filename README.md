@@ -58,12 +58,12 @@ src/
 ---
 ## 📌 Fitur Umum
 
-- 🔐 Login berdasarkan peran (Admin/Karyawan)
-- 🧑‍💼 Manajemen Karyawan (khusus Admin)
-- 📦 Manajemen Produk
-- 🛒 Manajemen Penjualan & Transaksi
-- 📊 Laporan Keuangan (khusus Admin)
-- 💬 Komunikasi Internal melalui Catatan
+- Login berdasarkan peran (Admin/Karyawan)
+- Manajemen Karyawan (khusus Admin)
+- Manajemen Produk
+- Manajemen Penjualan & Transaksi
+- Laporan Keuangan (khusus Admin)
+- Komunikasi Internal melalui Catatan
 
 ---
 
@@ -71,7 +71,7 @@ src/
 
 Admin memiliki **akses penuh** ke seluruh fitur dalam sistem.
 
-### 🔐 Login
+### Login
 - Masuk menggunakan username dan password sebagai pemilik toko.
 
 ### 👥 Manajemen Karyawan
@@ -80,14 +80,14 @@ Admin memiliki **akses penuh** ke seluruh fitur dalam sistem.
 - **Update**: Edit data karyawan
 - **Delete**: Hapus karyawan yang sudah keluar
 
-### 📦 Manajemen Produk
+### Manajemen Produk
 - **Create**: Tambah produk baru (Nama Produk, Harga, Stok)
 - **Read**: Lihat semua produk
 - **Update**: Ubah nama atau harga produk
 - **Delete**: Hapus produk yang tidak dijual lagi
 Generate QR code otomatis
 
-### 🛒 Manajemen Penjualan & Transaksi
+### Manajemen Penjualan & Transaksi
 
 #### a. Keranjang Produk
 - **Create**: Tambahkan produk ke keranjang
@@ -102,10 +102,10 @@ Generate QR code otomatis
 - **Delete**: Hapus transaksi dengan konfirmasi
 scan qr 
 
-### 📊 Laporan Keuangan
+### Laporan Keuangan
 - **Read**: Lihat laporan penjualan harian dan bulanan otomatis dari transaksi
 
-### 💬 Catatan Internal
+### Catatan Internal
 - Admin dapat mengirimkan pesan, perintah, atau instruksi kerja ke karyawan (satu arah)
 - Karyawan dapat memberikan validasi atau tanggapan atas tugas yang diberikan
 
@@ -115,16 +115,16 @@ scan qr
 
 Karyawan memiliki akses terbatas sesuai kebutuhan operasional kasir.
 
-### 🔐 Login
+### Login
 - Masuk menggunakan akun karyawan dengan hak akses terbatas.
 
-### 📦 Manajemen Produk
+### Manajemen Produk
 - **Create**: Tambah produk baru
 - **Read**: Lihat daftar produk
 - **Update**: Ubah harga atau nama produk
 - **Delete**: Hapus produk yang tidak tersedia
 
-### 🛒 Manajemen Penjualan & Transaksi
+### Manajemen Penjualan & Transaksi
 
 #### a. Keranjang Produk
 - **Create**: Tambahkan produk ke keranjang
@@ -138,11 +138,11 @@ Karyawan memiliki akses terbatas sesuai kebutuhan operasional kasir.
 - **Update**: Koreksi data transaksi
 - **Delete**: Hapus transaksi (dengan konfirmasi)
 
-### 💬 Catatan Internal
+### Catatan Internal
 - Karyawan dapat melihat pesan dari Admin dan mengirimkan validasi atau respon atas tugas
 
 ---
-## 📎 Catatan Tambahan
+## Catatan Tambahan
 
 - Menggunakan UI/UX sederhana dan responsif
 - Role-based access control manual (tanpa Supabase Auth)
