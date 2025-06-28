@@ -1,6 +1,8 @@
 # 💼 Website Sistem Kasir untuk UMKM Alat Tulis
 Website ini dikembangkan untuk membantu UMKM Alat Tulis dalam mempermudah pengelolaan toko secara digital. Sistem ini memiliki dua peran utama, yaitu **Admin (Pemilik Toko)** dan **Karyawan (Kasir)**, yang masing-masing memiliki hak akses fitur yang berbeda.
 
+![image alt]()
+
 ---
 ## 🌐 Url Prodi
 Berikut adalah Url Prodi Pendidikan Teknologi Informasi:  
