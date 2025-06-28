@@ -1,10 +1,10 @@
-# 💼 Website Sistem Kasir untuk UMKM Alat Tulis
-Website ini dikembangkan untuk membantu UMKM Alat Tulis dalam mempermudah pengelolaan toko secara digital. Sistem ini memiliki dua peran utama, yaitu **Admin (Pemilik Toko)** dan **Karyawan (Kasir)**, yang masing-masing memiliki hak akses fitur yang berbeda.
+# Website Sistem Kasir untuk UMKM Alat Tulis
+Website Sistem Kasir untuk UMKM Alat Tulis ini dirancang untuk membantu digitalisasi proses penjualan dan pengelolaan toko agar lebih efisien dan terorganisir. Sistem ini mendukung dua peran utama, yaitu Admin (pemilik toko) dan Karyawan (kasir), yang masing-masing memiliki hak akses sesuai kebutuhan operasional. Admin dapat mengelola produk, stok barang, laporan penjualan, serta data pengguna, sementara kasir dapat melakukan transaksi penjualan dan mencetak struk. Website ini dibangun dengan antarmuka yang responsif, ramah pengguna, dan dapat diakses melalui perangkat desktop secara lokal. Selain itu, sistem ini juga menyediakan fitur pencarian barang, histori transaksi, serta laporan yang membantu pemilik toko dalam menganalisis performa penjualan. Dengan fitur-fitur tersebut, sistem ini diharapkan dapat menjadi solusi praktis dan terjangkau untuk meningkatkan produktivitas dan akurasi operasional UMKM di bidang alat tulis.
 
 ![image alt](https://github.com/apikapikk/scriptoria/blob/228636099c64d54c387faa9a3e514fd8ee2c489a/Poster.png)
 
 ---
-## 🌐 Url Prodi
+## Url Prodi
 Berikut adalah Url Prodi Pendidikan Teknologi Informasi:  
 🔗 [https://pendidikan-ti.ft.unesa.ac.id/](https://pendidikan-ti.ft.unesa.ac.id/)
 
@@ -13,7 +13,7 @@ Berikut adalah Url Prodi Pendidikan Teknologi Informasi:
 
     U: admin P:admin1234
 ---
-## 👨‍💻 Anggota Tim Pengembang
+## Anggota Tim Pengembang
 
 | No. | Nama                             | NIM           |
 |-----|----------------------------------|---------------|
@@ -23,7 +23,7 @@ Berikut adalah Url Prodi Pendidikan Teknologi Informasi:
 | 4.  | Narendra Adi Nugraha             | 23050974076   |
 
 ---
-## 🛠️ Teknologi yang Digunakan
+## Teknologi yang Digunakan
 
 - **Frontend**: Next.js (Pages Router) + TypeScript
 - **Styling**: CSS Modules
@@ -36,7 +36,7 @@ Berikut adalah Url Prodi Pendidikan Teknologi Informasi:
 - **Deployment**: Vercel
 
 ---
-## 🔗 API Endpoint
+## API Endpoint
 
 | Method | Endpoint              | Deskripsi                          |
 |--------|------------------------|-------------------------------------|
@@ -46,7 +46,7 @@ Berikut adalah Url Prodi Pendidikan Teknologi Informasi:
 > Catatan: Data produk, transaksi, dan pengguna dikelola langsung melalui Supabase.
 
 ---
-## 🧠 Struktur Proyek
+## Struktur Proyek
 
 ```
 public/ # Aset publik (logo, gambar)
@@ -58,7 +58,7 @@ src/
 
 ```
 ---
-## 📌 Fitur Umum
+## Fitur Umum
 
 - Login berdasarkan peran (Admin/Karyawan)
 - Manajemen Karyawan (khusus Admin)
@@ -69,14 +69,14 @@ src/
 
 ---
 
-## 👤 Akses Peran: Admin (Pemilik Toko)
+## Akses Peran: Admin (Pemilik Toko)
 
 Admin memiliki **akses penuh** ke seluruh fitur dalam sistem.
 
 ### Login
 - Masuk menggunakan username dan password sebagai pemilik toko.
 
-### 👥 Manajemen Karyawan
+### Manajemen Karyawan
 - **Create**: Tambah karyawan baru (Nama, Username, Password, Role)
 - **Read**: Lihat daftar karyawan
 - **Update**: Edit data karyawan
@@ -113,7 +113,7 @@ scan qr
 
 ---
 
-## 👨‍💼 Akses Peran: Karyawan (Kasir)
+## Akses Peran: Karyawan (Kasir)
 
 Karyawan memiliki akses terbatas sesuai kebutuhan operasional kasir.
 
@@ -151,11 +151,11 @@ Karyawan memiliki akses terbatas sesuai kebutuhan operasional kasir.
 - Komunikasi internal berbasis catatan tugas
 - Penyimpanan file terintegrasi dengan Supabase Storage
 
-## 📄 Lisensi
+## Lisensi
 
 Open Source — bebas digunakan dan dimodifikasi sesuai kebutuhan, dengan tetap mencantumkan atribusi yang sesuai.
 
-## 🚀 Cara Menjalankan Project Ini
+## Cara Menjalankan Project Ini
 
 1. **Clone repository**
    ```bash
